@@ -1,0 +1,16 @@
+what = add(age, subtract(height, multiply(weight, divide(iq, 2))))
+
+
+
+what = 
+
+
+iq = 50
+divide 50 / 2 = 25
+weight = 180
+multiply 180 * 25 = 4500
+height = 78 - 4 = 74
+subtract = 74 - 4500 = -4426
+age = 30 + 5 = 35
+add = 35 + -4426
+what = -4391 
