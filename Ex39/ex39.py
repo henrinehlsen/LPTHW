@@ -43,3 +43,17 @@ for abbrev, city in cities.items():
 print '-' * 10
 for state, abbrev in states.items():
     print "%s state is abbreviated %s and has city %s" % (state, abbrev, cities[abbrev])
+
+
+print '-' * 10
+# safely get an abbreviation by state that might not be there
+state = states.get('Texas')
+
+if not state:
+    print "Sorry, no Texas"
+
+# get a city with a default value
+
+city = cities.get('TX', 'Does not exist')
+print "The city for the State of 'TX' is %s" % city
+    
