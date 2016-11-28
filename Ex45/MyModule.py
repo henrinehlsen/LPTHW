@@ -1,4 +1,4 @@
-
+import Levels
 
 class Engine(object):
     def __init__(self, scene_map):
@@ -6,7 +6,7 @@ class Engine(object):
 
     def play(self):
         current_scene = self.scene_map.opening_scene()
-        last_scene = self.scene_map.next_scene('finished')
+        last_scene = self.scene_map.next_scene('game_won')
 
         while current_scene != last_scene:
             next_scene_name = current_scene.enter()
@@ -16,13 +16,25 @@ class Engine(object):
 
 class Map(object):
     scenes = {
-        'phone_call': PhoneCall(),
-        'date_decision': DateDecision(),
-        'fancy_bar': FancyBar(),
-        'weird_pub': WeirdPub(),
-        'cinema': Cinema(),
-        'ice_skating': IceSkating(),
+        'phone_call': Levels.PhoneCall(),
+        'date_decision': Levels.DateDecision(),
+        'fancy_bar': Levels.FancyBar(),
+        'weird_pub': Levels.WeirdPub(),
+        'cinema': Levels.Cinema(),
+        'ice_skating': Levels.IceSkating(),
+        'game_won': Levels.GameWon(),
+        'date_transition': Levels.DateTransition(),
+        'her_place': Levels.HerPlace(),
+        'game_over': Levels.GameOver(),
+        'game_over_dead': Levels.GameOverDead(),
     }
 
     def __init__(self, start_scene):
-        
+        self.start_scene = start_scene
+
+    def next_scene(self, scene_name):
+        val = Map.scenes.get(scene_name)
+        return val
+
+    def opening_scene(self):
+        return self.next_scene(self.start_scene)
