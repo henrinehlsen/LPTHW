@@ -20,7 +20,6 @@ class Map(object):
         'date_decision': Levels.DateDecision(),
         'fancy_bar': Levels.FancyBar(),
         'weird_pub': Levels.WeirdPub(),
-        'cinema': Levels.Cinema(),
         'ice_skating': Levels.IceSkating(),
         'game_won': Levels.GameWon(),
         'date_transition': Levels.DateTransition(),

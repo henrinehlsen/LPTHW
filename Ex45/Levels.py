@@ -23,7 +23,7 @@ class PhoneCall(Level):
         if "lisa" in reply:
             print "'Educated guess, but no. My name is Lucy, Asshole!'"
             print "'Well, whatever... Let's meet anyway."
-            return 'decide_transition'
+            return 'date_transition'
 
         elif "lucy" in reply:
             print "'Gosh, I am relieved. You\'re not like all the others..'"
@@ -37,7 +37,7 @@ class DateTransition(Level):
         print "'Do you want to go out tonight?'"
         print "'Sure, where to?'"
         print "If I only knew what type of girl she was..."
-        print """We could go to a fancy bar, the pub around the corner, to the cinema
+        print """We could go to a fancy bar, the pub around the corner
 or for some romantic ice skating"""
         return 'date_decision'
 
@@ -100,7 +100,7 @@ class WeirdPub(Level):
 
         beers = int(raw_input("> "))
         print "What? %d beers already?" % beers
-        print beers
+        #print beers
 
         if beers >= 6:
             print "'I am much too drunk for this, sorry!'"
@@ -112,11 +112,68 @@ class WeirdPub(Level):
             return 'her_place'
 
 
-class Cinema(Level):
-    print "I am a cinema"
 
 class IceSkating(Level):
-    print "I am ice skating"
+    def enter(self):
+        print "You\'re taking the train to the ice skating rink"
+        print "'Well this is nice here.'"
+        print "'Oh, good, you like it.'"
+        print "'Sure, you remembered that I used to be an ice skating pro, right?'"
+        print "Damn, I knew there was something about that idea. Why ice skating??"
+        print "You\'re going to look like a fool."
+        print "'Everything ok, tiger?'"
+        print "And there she goes, skating so elegantly you cannot believe."
+        print "What do you do? Pretend your skates don\'t fit or follow her to the ice?"
+
+        ice_skate = raw_input("> ")
+
+        if "shoes" or "fit" in ice_skate:
+            print "'What a shame, my shoes don\'t fit. I\'d rather watch you!'"
+            print "'Don\'t be a sissy, you\'re fine!'"
+            print "She pulls you onto the ice"
+            print "... And, how could it be else, you stumble the second she lets go of your hand"
+            print "A minute later..."
+            print "You sit on a bench, your nose still bleeding."
+            print "'I am so sorry. Do you want to come to my place? I\'ll make you a drink!'"
+
+            nose_bleed = raw_input("> ")
+
+            if "yes" or "sure" in nose_bleed:
+                print "'Sure. Why not.'"
+                print "You're going to Lucy\'s by train, after half an hour, the two of you arrive."
+                return 'her_place'
+            elif "no" or "never" in nose_bleed:
+                print "'Well. Ok then. See you whenever.'"
+                print "Lucy leaves."
+                return 'game_over'
+            else:
+                print "I didn\'t get that."
+                nose_bleed = raw_input("> ")
+
+
+        else:
+            print "You follow her carefully."
+            print "Concentrate!!"
+            print "You almost slip, but suddenly, Lucy is there to take your hand."
+            print "'You\'re cute.'"
+            print "'This was fun! Do you want to come to my place for a drink?'"
+
+            ice_decision = raw_input("> ")
+
+
+            if "yes" or "sure" in ice_decision:
+                print "'Sure. Why not.'"
+                print "You're going to Lucy\'s by train, after half an hour, the two of you arrive."
+                return 'her_place'
+            elif "no" or "never" in ice_decision:
+                print "'Well. Ok then. See you whenever.'"
+                print "Lucy leaves."
+                return 'game_over'
+            else:
+                print "I didn\'t get that."
+                ice_decision = raw_input("> ")
+
+
 
 class HerPlace(Level):
     def enter(self):
